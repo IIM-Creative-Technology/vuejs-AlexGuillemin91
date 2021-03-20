@@ -1,4 +1,4 @@
-# vuejs-cms
+# cms-vuejs
 
 ## Project setup
 ```
