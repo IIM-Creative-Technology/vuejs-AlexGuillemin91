@@ -86,7 +86,7 @@ export default {
       if (this.checkInputs() == true) {
         this.createPost(this.form);
         console.log('yes');
-        this.$router.go("blog");
+        this.$router.go(-1);
       }
     },
   },
