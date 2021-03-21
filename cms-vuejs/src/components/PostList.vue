@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column align-items-center">
+  <div>
     <post-card v-for="(post, index) in posts" :key="index" />
   </div>
 </template>
