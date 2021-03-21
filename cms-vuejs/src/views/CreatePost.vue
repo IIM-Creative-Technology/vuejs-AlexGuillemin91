@@ -2,22 +2,31 @@
   <div>
     <layout />
     <form @submit.prevent="submit">
+        <h2>Créer une nouvelle page de blog</h2>
       <div class="form">
         <div class="info-basique">
-          <label>Titre de la page</label>
-          <input v-model="form.title" />
-          <label>Meta title</label>
-          <input v-model="form.meta_title" />
-          <label>Meta description</label>
-          <input v-model="form.meta_description" />
+          <div class="input">
+            <label>Titre de la page</label>
+            <input v-model="form.title" />
+          </div>
+          <div class="input">
+            <label>Meta title</label>
+            <input v-model="form.meta_title" />
+          </div>
+          <div class="input">
+            <label>Meta description</label>
+            <input v-model="form.meta_description" />
+          </div>
         </div>
         <div class="info-image">
           <label>Ajouter une image</label>
           <img :src="form?.image" :alt="form?.meta_title" />
         </div>
       </div>
-      <label>Corps de la page</label>
-      <textarea v-model="form.content"></textarea>
+      <div class="textarea">
+        <label>Corps de la page</label>
+        <textarea v-model="form.content" rows="10" cols="50"></textarea>
+      </div>
       <div class="submit-form">
         <button type="submit">Créer la page</button>
       </div>
@@ -76,6 +85,7 @@ export default {
     create() {
       if (this.checkInputs() == true) {
         this.createPost(this.form);
+        console.log('yes');
         this.$router.go("blog");
       }
     },
@@ -84,4 +94,36 @@ export default {
 </script>
 
 <style>
+.form {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form .info-basique {
+  display: block;
+}
+
+label {
+  margin-right: 0.5rem;
+}
+
+.form .info-basique .input {
+  padding: 0.5rem;
+  display : flex;
+  justify-content: space-between;
+}
+
+.textarea {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.submit-form {
+  margin-top: 1rem;
+  width: 80%;
+  display: flex;
+  justify-content: flex-end;
+}
 </style>
