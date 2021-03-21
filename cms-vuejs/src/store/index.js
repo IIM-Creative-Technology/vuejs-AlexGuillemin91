@@ -18,7 +18,6 @@ export default createStore({
     actions: {
         createPost(context, post) {
             context.commit('CREATE_POST', post);
-
         }
     }
 })

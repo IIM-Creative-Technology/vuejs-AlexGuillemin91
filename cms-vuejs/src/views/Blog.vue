@@ -1,15 +1,13 @@
 <template>
 <div>
   <layout />
-  <post-list />
 </div>
 </template>
 
 <script>
-import PostList from '../components/PostList.vue'
 import Layout from '../layouts/Layout.vue'
 export default {
-  components: { Layout, PostList },
+  components: { Layout },
   name: 'blog',
 }
 </script>

@@ -2,7 +2,7 @@
   <div>
     <layout />
     <form @submit.prevent="submit">
-      <h2>Créer une nouvelle page de blog</h2>
+      <h2>Editer une nouvelle page de blog</h2>
       <div class="form">
         <div class="info-basique">
           <div class="input">
@@ -28,14 +28,14 @@
         <textarea v-model="form.content" rows="10" cols="50"></textarea>
       </div>
       <div class="submit-form">
-        <button type="submit">Créer la page</button>
+        <button type="submit">Enregister les modifications</button>
       </div>
     </form>
   </div>
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapState, mapActions } from "vuex";
 import Layout from "../layouts/Layout.vue";
 
 export default {
@@ -51,11 +51,25 @@ export default {
       },
     };
   },
+  mounted() {
+    this.initPost();
+  },
   methods: {
     ...mapActions(["createPost"]),
+    ...mapState({
+      initPost(state) {
+        const post = state.posts[0];
+        this.form.title = post.title;
+        this.form.meta_title = post.meta_title;
+        this.form.meta_descripition = post.meta_descripition;
+        this.form.image = post.image;
+        this.form.content = post.content;
+      },
+    }),
     submit() {
       this.create();
     },
+    // check si les inputs ont vides
     checkInputs() {
       if (
         this.form.title != "" &&
@@ -72,6 +86,7 @@ export default {
       return false;
     },
 
+    // crée le post et ramène a la page précedente
     create() {
       if (this.checkInputs() == true) {
         this.createPost(this.form);
@@ -83,10 +98,6 @@ export default {
 </script>
 
 <style>
-h2 {
-  text-align: center;
-}
-
 .form {
   margin-top: 3rem;
   display: flex;

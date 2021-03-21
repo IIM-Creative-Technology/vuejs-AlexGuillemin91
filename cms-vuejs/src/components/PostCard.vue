@@ -3,7 +3,10 @@
     <div class="body">
       <img class="img" :src="post.image" :alt="post.title" />
       <p>{{ post.meta_description }}</p>
-      <button>editer</button>
+      <router-link :to="{ name: 'admin.edit.post' }">
+        <button>editer</button>
+      </router-link>
+      
       <button>supprimer</button>
     </div>
   </div>
@@ -16,10 +19,10 @@ export default {
   props: {
     post: {
       default: {},
-    }
+    },
   },
   methods: {
     ...mapActions(["deletePost"]),
-  }
+  },
 };
 </script>
