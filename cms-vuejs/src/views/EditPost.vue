@@ -61,7 +61,7 @@ export default {
         const post = state.posts[0];
         this.form.title = post.title;
         this.form.meta_title = post.meta_title;
-        this.form.meta_descripition = post.meta_descripition;
+        this.form.meta_description = post.meta_description;
         this.form.image = post.image;
         this.form.content = post.content;
       },
@@ -75,7 +75,7 @@ export default {
         this.form.title != "" &&
         this.form.slug != "" &&
         this.form.meta_title != "" &&
-        this.form.meta_descripition != "" &&
+        this.form.meta_description != "" &&
         this.form.content != ""
       ) {
         if (this.form.image == "") {

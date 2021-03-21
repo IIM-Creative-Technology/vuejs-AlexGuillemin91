@@ -61,7 +61,7 @@ export default {
         this.form.title != "" &&
         this.form.slug != "" &&
         this.form.meta_title != "" &&
-        this.form.meta_descripition != "" &&
+        this.form.meta_description != "" &&
         this.form.content != ""
       ) {
         if (this.form.image == "") {
