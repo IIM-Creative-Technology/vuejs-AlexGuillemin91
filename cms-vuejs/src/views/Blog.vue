@@ -1,11 +1,14 @@
 <template>
 <div>
+  <layout />
   blog
 </div>
 </template>
 
 <script>
+import Layout from '../layouts/Layout.vue'
 export default {
+  components: { Layout },
   name: 'blog',
 }
 </script>

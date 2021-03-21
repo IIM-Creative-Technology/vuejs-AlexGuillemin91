@@ -1,16 +1,22 @@
 <template>
-<div>
-  admin
-</div>
+  <div>
+    <layout />
+    <router-link :to="{ name: 'admin.create.post' }">
+      Créer une page
+    </router-link>
+  </div>
 </template>
 
 <script>
+import Layout from "../layouts/Layout.vue";
+
 export default {
-  name: 'admin',
-}
+  name: "admin",
+  components: {
+    Layout,
+  },
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 </style>
